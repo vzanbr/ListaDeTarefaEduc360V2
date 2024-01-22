@@ -6,6 +6,7 @@ public class Tarefa {
     private String descricao;
     private ArrayList<Tarefa> tarefas;
     private String tarefa;
+    private boolean verificarTarefaExistente;
 
     public String getDescricao() {
         return descricao;
@@ -44,6 +45,15 @@ public class Tarefa {
     public void remover(Tarefa tarefa) {
         tarefas.remove(tarefa);
 
+    }
+
+    public boolean verificarTarefaExistente(String tarefaResposta) {
+        for (Tarefa tarefa : tarefas) {
+            if (tarefa.getDescricao().equals(tarefaResposta)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

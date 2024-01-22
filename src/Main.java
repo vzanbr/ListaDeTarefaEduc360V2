@@ -36,11 +36,12 @@ public class Main {
             }
         }
         System.out.println("Fim do Programa By Gabriel Alves de Lima");
+        System.out.println("Meu Site https://vzanbr.github.io/Gabriel-Lima ");
     }
         public static void proximaPagina() {
 
             ArrayList<String> listTarefas = new ArrayList<>( );
-            ArrayList <Tarefa> lista = new ArrayList<>();
+            ArrayList <Tarefa> lista = new ArrayList<Tarefa>();
 
             boolean ativo = true;
             while (ativo) {
@@ -69,14 +70,11 @@ public class Main {
                         System.out.print("Digite a descrição: ");
                         String tarefaResposta = leitor.nextLine();
                         {
-                            if (tarefaResposta == tarefaResposta) {
+                            if (!listTarefas.contains(tarefaResposta)) {
                                 listTarefas.add(tarefaResposta);
                                 System.out.println("Tarefa adicionada com sucesso!");
-                            } else {
-                                if (listTarefas.contains(tarefaResposta != tarefaResposta)) ;
-                                {
+                            } else  {
                                     System.out.println("Ja existe tarefa com o mesmo nome!");
-                                }
                             }
                         }
                         break;
