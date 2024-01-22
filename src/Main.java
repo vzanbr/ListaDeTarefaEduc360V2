@@ -34,13 +34,13 @@ public class Main {
                     break;
                 }
             }
-            System.out.println("Fim do Programa By Gabriel Alves de Lima");
         }
+        System.out.println("Fim do Programa By Gabriel Alves de Lima");
     }
         public static void proximaPagina() {
 
             ArrayList<String> listTarefas = new ArrayList<>( );
-            ArrayList lista = new ArrayList<>();
+            ArrayList <Tarefa> lista = new ArrayList<>();
 
             boolean ativo = true;
             while (ativo) {
@@ -67,22 +67,36 @@ public class Main {
                     case "2": {
                         System.out.println("=====Tarefa Nova=====");
                         System.out.print("Digite a descrição: ");
-                        String tarefa = leitor.nextLine();
-                        listTarefas.add(tarefa);
-                        tarefa.contains(tarefa);
-                        System.out.println("Tarefa adicionada com sucesso!" );
+                        String tarefaResposta = leitor.nextLine();
+                        {
+                            if (tarefaResposta == tarefaResposta) {
+                                listTarefas.add(tarefaResposta);
+                                System.out.println("Tarefa adicionada com sucesso!");
+                            } else {
+                                if (listTarefas.contains(tarefaResposta != tarefaResposta)) ;
+                                {
+                                    System.out.println("Ja existe tarefa com o mesmo nome!");
+                                }
+                            }
+                        }
                         break;
                     }
                     case "3": {
-                        System.out.println("Digite o nome da Tarefa" );
+                        System.out.println("Digite o nome da Tarefa");
                         String tarefaRemover = leitor.nextLine();
-                        if (listTarefas.remove(tarefaRemover)){
 
-                            System.out.println("=====Tarefa Removida=====");
-                            System.out.println(tarefaRemover + "Foi removido com sucesso!");
+                        System.out.println("Você realmente dessa remover?   s/n ");
+                        {
+                            char resposta = leitor.nextLine().charAt(0);
+                            if(resposta == 's') {
+                                listTarefas.remove(tarefaRemover);
+                                System.out.println(tarefaRemover + " Foi removido com sucesso! ");
 
-                        } else {
-                            System.out.println("A tarefa não esta na lista:" );
+                            } else {
+                                if (resposta == 'n'){
+                                    System.out.println("Tarefa não foi removida!");
+                                }
+                            }
                         }
                         break;
                     }

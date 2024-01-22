@@ -1,32 +1,56 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Tarefa {
 
     private String descricao;
     private ArrayList<Tarefa> tarefas;
+    private String tarefa;
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setTarefas(ArrayList<Tarefa> tarefas) {
+        this.tarefas = tarefas;
+    }
+
+    public String getTarefa() {
+        return tarefa;
+    }
+
+    public void setTarefa(String tarefa) {
+        this.tarefa = tarefa;
+    }
 
     private ArrayList<Tarefa> getTarefas() {
         return tarefas;
     }
 
-    public void add(Tarefa tarefa) {
-        if (!tarefas.contains(tarefa))
-            tarefas.add(tarefa);
+    public Tarefa() {
+        super();
     }
 
+    public void adicionar(Tarefa tarefa) {
+            if (!tarefas.contains(tarefa))
+                 tarefas.add(tarefa);
+
+    }
 
     public void remover(Tarefa tarefa) {
         tarefas.remove(tarefa);
 
     }
 
-    public Tarefa(String descricao) {
-        this.descricao = descricao;
+    @Override
+    public int hashCode() {
+        return Objects.hash(descricao);
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -35,7 +59,7 @@ public class Tarefa {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Tarefa other = (Tarefa) obj;
+        Tarefa tarefa = (Tarefa) obj;
         return obj.equals(descricao);
     }
 
