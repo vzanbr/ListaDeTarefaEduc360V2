@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -71,9 +70,9 @@ public class Tarefa {
         } else {
             System.out.println("Status alterado com sucesso");
             if (listaTarefas.get(alterarTarefa - 1).charAt(1) == 'X') {
-                listaTarefas.set(alterarTarefa - 1, "[ ]" + listaTarefas.get(alterarTarefa - 1).substring(3));
+                listaTarefas.set(alterarTarefa - 1, "[]" + listaTarefas.get(alterarTarefa - 1).substring(3));
             } else {
-                listaTarefas.set(alterarTarefa - 1, "[X]" + listaTarefas.get(alterarTarefa - 1).substring(3));
+                listaTarefas.set(alterarTarefa - 1, " [X] " + listaTarefas.get(alterarTarefa - 1).substring(3));
             }
         }
     }
