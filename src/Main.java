@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -27,7 +26,6 @@ public class Main {
                 }
                 case "2": {
                     ativo = false;
-                    System.out.println("Saindo da lista!");
                     break;
                 }
                 default: {
@@ -38,81 +36,65 @@ public class Main {
         System.out.println("Fim do Programa By Gabriel Alves de Lima");
         System.out.println("Meu Site https://vzanbr.github.io/Gabriel-Lima ");
     }
-        public static void proximaPagina() {
 
-            ArrayList<String> listTarefas = new ArrayList<>( );
-            ArrayList <Tarefa> lista = new ArrayList<Tarefa>();
+    public static void proximaPagina() {
 
-            boolean ativo = true;
-            while (ativo) {
-                System.out.println("========Lista=========");
-                System.out.println("1 - Minhas tarefas");
-                System.out.println("2 - Adcionar tarefa");
-                System.out.println("3 - Remover tarefa");
-                System.out.println("4 - Organizar tarefa");
-                System.out.println("5 - Sair da Lista");
-                System.out.print("Digite o Opção : ");
+        ArrayList<String> listaTarefas = new ArrayList<>();
 
-                String opcao = leitor.nextLine();
+        boolean ativo = true;
+        while (ativo) {
+            System.out.println("=========Lista=======");
+            System.out.println("1 - Minhas Tarefas");
+            System.out.println("2 - Adcionar Tarefa");
+            System.out.println("3 - Remover Tarefa");
+            System.out.println("4 - Alterar status");
+            System.out.println("5 - Organizar Tarefas");
+            System.out.println("6 - Salvar no Computador em formato TXT");
+            System.out.println("7 - Tarefas salvas em TXT Recuperar");
+            System.out.println("9 - sair");
+            System.out.println("======Fim da Lista======");
+            System.out.print("Digite a Opção: ");
+            String opcao = leitor.nextLine();
 
-                switch (opcao) {
-                    case "1": {
-                        System.out.println("==============================");
-                        System.out.println("Listar tarefas do dia: ");
-                        System.out.println("==============================");
-                        for (String a : listTarefas) {
-                            System.out.println(a);
-                        }
-                        break;
-                    }
-                    case "2": {
-                        System.out.println("=====Tarefa Nova=====");
-                        System.out.print("Digite a descrição: ");
-                        String tarefaResposta = leitor.nextLine();
-                        {
-                            if (!listTarefas.contains(tarefaResposta)) {
-                                listTarefas.add(tarefaResposta);
-                                System.out.println("Tarefa adicionada com sucesso!");
-                            } else  {
-                                    System.out.println("Ja existe tarefa com o mesmo nome!");
-                            }
-                        }
-                        break;
-                    }
-                    case "3": {
-                        System.out.println("Digite o nome da Tarefa");
-                        String tarefaRemover = leitor.nextLine();
 
-                        System.out.println("Você realmente dessa remover?   s/n ");
-                        {
-                            char resposta = leitor.nextLine().charAt(0);
-                            if(resposta == 's') {
-                                listTarefas.remove(tarefaRemover);
-                                System.out.println(tarefaRemover + " Foi removido com sucesso! ");
-
-                            } else {
-                                if (resposta == 'n'){
-                                    System.out.println("Tarefa não foi removida!");
-                                }
-                            }
-                        }
-                        break;
-                    }
-                    case "4": {
-                        System.out.println("=======Tarefas organizadas=====" );
-                        Collections.sort(listTarefas);
-                        System.out.println(listTarefas);
-                        System.out.println("=======Tarefas organizadas=====" );
-                        break;
-                    }
-                    case "5": {
-                        System.out.println("Saindo da Lista!");
-                        ativo = false;
-                        break;
-                    }
-                    default:
-                        System.out.println("opção inválida. TENTE NOVAMENTE.");
+            switch (opcao) {
+                case "1": {
+                    Tarefa.VerTarefas(listaTarefas);
+                    break;
                 }
+                case "2": {
+                    Tarefa.addTarefa(listaTarefas);
+                    break;
+                }
+                case "3": {
+                    Tarefa.RemoverTarefa(listaTarefas);
+                    break;
+                }
+                case "4": {
+                    Tarefa.AlterarStatus(listaTarefas);
+                    break;
+                }
+                case "5": {
+                    Tarefa.organizarTarefas(listaTarefas);
+                    break;
+                }
+                case "6": {
+                    Tarefa.Salvar(listaTarefas);
+                    break;
+                }
+                case "7": {
+                    Tarefa.RecuperarLista(listaTarefas);
+                    break;
+                }
+                case "9": {
+                    ativo = false;
+                    System.out.println("Saindo da lista!");
+                    break;
+                }
+
+                default:
+                    System.out.println("Comando invalido");
             }
         }
+    }
 }
