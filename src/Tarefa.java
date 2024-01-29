@@ -1,7 +1,9 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Tarefa {
 
@@ -51,31 +53,38 @@ public class Tarefa {
         }
     }
 
-    public static void organizarTarefas (ArrayList<String> listaTarefas){
-        System.out.println("=======Tarefas organizadas=====" );
+    public static void organizarTarefasAlfabetico (ArrayList<String> listaTarefas) {
         Collections.sort(listaTarefas);
-        System.out.println(listaTarefas);
-        System.out.println("=======Tarefas organizadas=====" );
+        for (String listaTarefa : listaTarefas) {
+            System.out.println(listaTarefa);
+        }
     }
 
-    public static void AlterarStatus(ArrayList<String> listaTarefas){
-        for (int i = 1; i-1 < listaTarefas.size(); i++) {
-            System.out.println(i + "- " + listaTarefas.get(i-1));
+    public static void organizarTarefa (ArrayList<String> listaTarefas) {
+        System.out.println("=======Tarefas organizadas=====" );
+            Collections.sort(listaTarefas);
+        System.out.println(listaTarefas);
+            System.out.println("=======Tarefas organizadas=====" );
         }
-        System.out.print("Digite o número da tarefa que deseja altrar o status: ");
-        Scanner entradaAlterarTarefa = new Scanner(System.in);
-        int alterarTarefa = entradaAlterarTarefa.nextInt();
-        if (listaTarefas.size() < alterarTarefa) {
-            System.out.println("[ERRO] número invalido");
-        } else {
-            System.out.println("Status alterado com sucesso");
-            if (listaTarefas.get(alterarTarefa - 1).charAt(1) == 'X') {
-                listaTarefas.set(alterarTarefa - 1, "[]" + listaTarefas.get(alterarTarefa - 1).substring(3));
-            } else {
-                listaTarefas.set(alterarTarefa - 1, " [X] " + listaTarefas.get(alterarTarefa - 1).substring(3));
-            }
-        }
-    }
+
+//    public static void AlterarStatus(ArrayList<String> listaTarefas){
+//        for (int i = 1; i-1 < listaTarefas.size(); i++) {
+//            System.out.println(i + "- " + listaTarefas.get(i-1));
+//        }
+//        System.out.print("Digite o número da tarefa que deseja altrar o status: ");
+//        Scanner entradaAlterarTarefa = new Scanner(System.in);
+//        int alterarTarefa = entradaAlterarTarefa.nextInt();
+//        if (listaTarefas.size() < alterarTarefa) {
+//            System.out.println("[ERRO] número invalido");
+//        } else {
+//            System.out.println("Status alterado com sucesso");
+//            if (listaTarefas.get(alterarTarefa - 1).charAt(1) == 'X') {
+//                listaTarefas.set(alterarTarefa - 1, "[]" + listaTarefas.get(alterarTarefa - 1).substring(3));
+//            } else {
+//                listaTarefas.set(alterarTarefa - 1, " [X] " + listaTarefas.get(alterarTarefa - 1).substring(3));
+//            }
+//        }
+//    }
     public static void Salvar(ArrayList<String> listaTarefas){
         System.out.println("Escolha um nome para o arquivo:");
         Scanner entradaNomeArquivo = new Scanner(System.in);

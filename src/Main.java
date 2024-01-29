@@ -47,10 +47,10 @@ public class Main {
             System.out.println("1 - Minhas Tarefas");
             System.out.println("2 - Adcionar Tarefa");
             System.out.println("3 - Remover Tarefa");
-            System.out.println("4 - Alterar status");
-            System.out.println("5 - Organizar Tarefas");
-            System.out.println("6 - Salvar no Computador em formato TXT");
-            System.out.println("7 - Tarefas salvas em TXT Recuperar");
+            System.out.println("4 - Organizar Tarefas");
+            System.out.println("5 - Salvar no Computador em formato TXT");
+            System.out.println("6 - Tarefas salvas em TXT Recuperar");
+            System.out.println("8 - Organizar em Cronologica ");
             System.out.println("9 - sair");
             System.out.println("======Fim da Lista======");
             System.out.print("Digite a Opção: ");
@@ -71,19 +71,19 @@ public class Main {
                     break;
                 }
                 case "4": {
-                    Tarefa.AlterarStatus(listaTarefas);
+                    Tarefa.organizarTarefasAlfabetico(listaTarefas);
                     break;
                 }
                 case "5": {
-                    Tarefa.organizarTarefas(listaTarefas);
-                    break;
-                }
-                case "6": {
                     Tarefa.Salvar(listaTarefas);
                     break;
                 }
-                case "7": {
+                case "6": {
                     Tarefa.RecuperarLista(listaTarefas);
+                    break;
+                }
+                case "8": {
+                    Tarefa.organizarTarefa(listaTarefas);
                     break;
                 }
                 case "9": {
