@@ -48,7 +48,7 @@ public class Tarefa  {
 
     @Override
     public String toString() {
-        return "Tarefas{" +  "id=" + id +  ", nomeTarefa='" + nomeTarefa + '\'' + '}';
+        return "Tarefas {" +  " id=" + id +  ", nomeTarefa='" + nomeTarefa + '\'' + '}';
     }
 
     public static final Comparator<Tarefa> COMPARATOR_BY_NOME = Comparator.comparing(Tarefa::getNomeTarefa);

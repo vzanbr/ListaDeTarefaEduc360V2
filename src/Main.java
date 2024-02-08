@@ -1,10 +1,5 @@
-import java.awt.*;
 import java.io.*;
 import java.util.*;
-import java.util.List;
-
-import static java.lang.Long.parseLong;
-import static java.lang.Long.valueOf;
 
 public class Main {
 
@@ -76,26 +71,29 @@ public class Main {
                         return;
                     }
                     tarefas.setNomeTarefa(tarefaResposta);
-                    try {
-                        if (!listaTarefas.contains(tarefas)) {
-                                listaTarefas.add(tarefas);
-                                System.out.println("Tarefa " + tarefaResposta + " adicionada com sucesso!");
-                            } else {
-                                throw new TarefaException("Já existe uma tarefa com o mesmo nome!" + tarefaResposta);
-                            }
-                        } catch(TarefaException e){
-                            System.out.println(e.getMessage());
-                        }
 
-                        for (Tarefa tarefa : listaTarefas)
+                        boolean tarefaExistente = false;
+                        for (int j = 0; j < listaTarefas.size(); j++) {
+                            if (tarefaResposta.equals(listaTarefas.get(j).getNomeTarefa())) {
+                                tarefaExistente = true;
+                                System.out.println("Já existe uma tarefa com o mesmo nome! " + " [" + tarefaResposta+ "] ");
+                                break;
+                            }
+                        }
+                        if (!tarefaExistente) {
+                            listaTarefas.add(new Tarefa(tarefas.getId(), tarefas.getNomeTarefa()));
+                            System.out.println( "Tarefa " + " [" + tarefaResposta + "] " +  " Adicionada com sucesso!");
+                        }
+                            for (Tarefa tarefa : listaTarefas)
                             System.out.println(tarefa);
                     break;
+
 
                 case "3":
                     System.out.println("Digite o id da tarefa: ");
                     Scanner entradaRemoverTarefa = new Scanner(System.in);
                     int removerTarefa = entradaRemoverTarefa.nextInt();
-                    System.out.println("Tem certeza que deseja remover a Tarefa " + removerTarefa + " ?(S / N)");
+                    System.out.println("Tem certeza que deseja remover a Tarefa " + " [" + removerTarefa + "] " + " ?(S / N)");
                     String escolha = entradaRemoverTarefa.next();
                     int sizeList = listaTarefas.size();
 
@@ -124,7 +122,7 @@ public class Main {
                     String nomeArquivo = leitor.nextLine();
                     try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo + ".txt"))) {
                         for (Tarefa tarefa : listaTarefas) {
-                            writer.write(tarefa.getId());
+                            writer.write(tarefa.getNomeTarefa());
                             writer.newLine();
                         }
                     } catch (IOException e) {
